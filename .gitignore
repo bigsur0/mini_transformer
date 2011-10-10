@@ -1,4 +1,4 @@
-*.gem
+mini_transformer-*.gem
 .bundle
 Gemfile.lock
 pkg/*
