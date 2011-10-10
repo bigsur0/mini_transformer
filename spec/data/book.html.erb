@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta id="book-resource-type" content="<%= metadata.type %>">
+    <meta id="identifier" content="//apple_ref/doc/uid/<%= metadata.uid %>">
+    <title><%= metadata.title %></title>
+  </head>
+  <body>
+    <details>
+      <summary class="<%= key_list.name.css_class %>"><%= key_list.name.value %></summary>
+    </details>
+    <div class="key-list">
+      <span class="<%= key_list.key_label.css_class %>"><%= key_list.key_label.value %></span>
+      <span class="<%= key_list.description_label.css_class %>"><%= key_list.description_label.value %></span>
+      <dl class="<%= key_list_entries.css_class %>">
+        <%- key_list_entries.values.each do |key_list_entry| -%>
+        <dt class="<%= key_list_entry.key_name.css_class %>"><%= key_list_entry.key_name.value %></dt>
+        <dd class="<%= key_list_entry.key_description.css_class %>"><%= key_list_entry.key_description.value %></dd>
+        <%- end -%>
+      </dl>
+    </div>
+  </body>
+</html>

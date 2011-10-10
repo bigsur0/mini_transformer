@@ -1,0 +1,24 @@
+key_list:
+  xpath: /Book/KeyList
+  css_class: key-list
+  fields:
+    name:
+      xpath: Name
+      css_class: key-list-name
+    key_label:
+      xpath: KeyLabel
+      css_class: key-Label
+    description_label:
+      xpath: DescriptionLabel
+      css_class: description-label
+
+key_list_entries:
+  collection_xpath: /Book/KeyList/Entries/Entry
+  css_class: entries
+  fields:
+    key_name:
+      xpath: KeyName
+      css_class: key-name
+    key_description:
+      xpath: Description
+      css_class: key-description

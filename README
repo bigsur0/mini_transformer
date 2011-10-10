@@ -1,0 +1,54 @@
+Thu Oct  6 09:47:17 PDT 2011
+
+Create a ruby gem that uses the nokogiri gem
+(https://github.com/tenderlove/nokogiri) to convert the data in
+  'input/input.xml'
+  'input/input.json'
+into the 'output/TP40010215.html' file.
+
+Provide as close to full unit test coverage as you reasonably can.
+
+Make the mappings configurable so that we can easily change the
+class used for key labels, for example. The intent is that someone
+other than  a ruby programmer (e.g. a designer) will make most of
+the changes to the mappings.
+
+
+
+Setup:
+  Get the code:
+    git clone git://github.com/r6p/mini_transformer.git
+  
+  Setup Ruby and Gemset:
+    rvm install ruby-1.9.2 (with rubygems 1.8.10)
+    rvm gemset create mini_transformer
+    source .rvmrc
+  
+  Install gems:
+    gem install bundler
+    bundle install --local
+    
+  Run MiniTest specs:
+    rake spec
+
+Usage:
+
+MiniTransformer::Run.on_dir (
+                 :work_dir  =>  "data",
+                 :metadata  =>  "input.json",
+                 :input     =>  "input.xml",
+                 :template  =>  "book.html.erb",
+                 :mappings  =>  "book-mappings.yml",
+                 :output    =>  "book.html"
+               )
+
+TODO:
+-use markdown in README
+-use file classes to construct OS independent file path
+-encoding support, ie input encoding should probably dictate output encoding
+
+Dependencies:
+-Nokogiri in Mapper and Input classes
+-JSON in Mapper class
+-File in Output and Run classes
+
