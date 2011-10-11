@@ -4,16 +4,16 @@ module MiniTransformer
   class Run
   
     attr_reader :input, :mapper, :transformer
+    private :input, :mapper, :transformer
   
     def initialize(params)
-      @input = Input.new(params.metadata, params.xml)
       @mapper = Mapper.new(params.mappings)
       @transformer = Transformer.new(params.template)
     end
   
-    def run
-      model = @mapper.map(@input)
-      @transformer.render(model)
+    def run(input)
+      model = mapper.map(input)
+      transformer.render(model)
     end
   
   
@@ -27,8 +27,9 @@ module MiniTransformer
   
         runner = Run.new(opts)
         opts.output = opts.output ||= runner.input.metadata.uid
+        input = Input.new(opts.metadata, opts.xml)
         output = Output.new(opts.work_dir)
-        output.write(opts.output, runner.run)
+        output.write(opts.output, runner.run(input))
       end
   
       def read_file(path)

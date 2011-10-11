@@ -5,13 +5,16 @@ require 'ostruct'
 module MiniTransformer
   class Mapper
     
+    attr_reader :mapping_config
+    private :mapping_config
+
     def initialize(mappings)
       @mapping_config = YAML.load(mappings)
     end
   
     def map(input)
       bound = OpenStruct.new(:metadata => input.metadata)
-      @mapping_config.each do |field, config|
+      mapping_config.each do |field, config|
         bound.send("#{field}=", map_xml(input.dom, field, config))
       end
       bound

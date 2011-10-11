@@ -8,7 +8,7 @@ describe MiniTransformer::Mapper do
     xml = helper.read_spec_data("input.xml")
     input = MiniTransformer::Input.new(json, xml)
     mappings = helper.read_spec_data("book-mappings.yml")
-    MiniTransformer::Mapper.new(mappings)
+    MiniTransformer::Mapper.new(mappings).wont_be_nil
   end
 
   it "should map input to an OpenStruct" do

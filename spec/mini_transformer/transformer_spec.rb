@@ -10,7 +10,7 @@ describe MiniTransformer::Transformer do
   end
 
   it "should accept an erb template" do
-    output = MiniTransformer::Transformer.new(@erb)
+    MiniTransformer::Transformer.new(@erb).wont_be_nil
   end
 
   it "should render" do
