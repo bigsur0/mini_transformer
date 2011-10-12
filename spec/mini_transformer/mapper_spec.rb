@@ -1,4 +1,5 @@
 require_relative '../spec_helper'
+require 'psych'
 require 'mini_transformer/mapper'
 
 describe MiniTransformer::Mapper do
