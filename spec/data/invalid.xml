@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+Book id="23">
+KeyList>
+  <Name>Standard symbols for use in menus</Name>
+  <KeyLabel>Symbol</KeyLabel>
+  <DescriptionLabel>Meaning</DescriptionLabel>
+  <Entries>
+    <Entry>
+      <KeyName>✓</KeyName>
+      <Description>In the Window menu, the active document; in other menus, a setting that applies to the entire selection</Description>
+    </Entry>
+  </Entries>
+/KeyList>
+/Book>

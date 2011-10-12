@@ -3,18 +3,8 @@
 module MiniTransformer
   class Output
    
-    attr_reader :output_dir
-    private :output_dir
-
-    def initialize(output_dir)
-      @output_dir = output_dir
-    end
-  
-    def write(file_name, output)
-      File.open([output_dir, file_name].join("/"), 'w') do |f| 
-        f.write(output)
-        f.flush
-      end
+    def write(stream, output)
+      stream.write(output)
       true
     rescue
       false

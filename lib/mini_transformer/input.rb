@@ -10,7 +10,8 @@ module MiniTransformer
     def initialize(metadata, xml)
       json = JSON.parse(metadata)
       @metadata = OpenStruct.new(json)
-      @dom = Nokogiri::XML(xml)
+      raise "Provided xml was nil" unless xml
+      @dom = Nokogiri::XML(xml){ |config| config.strict }
     end
   
   end
